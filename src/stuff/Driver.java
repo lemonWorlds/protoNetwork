@@ -1,5 +1,7 @@
 package stuff;
 
+import java.util.List;
+
 import com.hp.hpl.jena.rdf.model.InfModel;
 import com.hp.hpl.jena.rdf.model.Model;
 import com.hp.hpl.jena.rdf.model.ModelFactory;
@@ -42,10 +44,38 @@ public class Driver {
 		Property hasAction = schema.getProperty("http://www.model.org/hasAction");
 		ruleEvent1.addProperty(hasAction, action1);
 		
+		//Create more rules
+		Resource ruleEvent2 = rules.createResource("http://www.rules.org/ruleEvent2");
+		Resource memberEventClass = schema.getResource("http://www.model.org/memberEvent");
+		ruleEvent2.addProperty(RDF.type, memberEventClass);
+		Resource action2 = rules.createResource("http://www.rules.org/action2");
+		ruleEvent2.addProperty(hasAction,action2);
+		
+		Resource ruleEvent3 = rules.createResource("http://www.rules.org/ruleEvent3");
+		Resource updateClass = schema.getResource("http://www.model.org/update");
+		ruleEvent3.addProperty(RDF.type, updateClass);
+		Resource action3 = rules.createResource("http://www.rules.org/action3");
+		ruleEvent3.addProperty(hasAction,action3);
+		
+		Resource ruleEvent4 = rules.createResource("http://www.rules.org/ruleEvent4");
+		Resource documentEventClass = schema.getResource("http://www.model.org/documentEvent");
+		ruleEvent4.addProperty(RDF.type, documentEventClass);
+		Resource action4 = rules.createResource("http://www.rules.org/action4");
+		ruleEvent4.addProperty(hasAction,action4);
+		
+		Resource ruleEvent5 = rules.createResource("http://www.rules.org/ruleEvent5");
+		Resource joinEvent = schema.getResource("http://www.model.org/join");
+		ruleEvent5.addProperty(RDF.type, joinEvent);
+		Resource action5 = rules.createResource("http://www.rules.org/action5");
+		ruleEvent5.addProperty(hasAction,action5);
+		
 		//Add rules to base
 		base.addRule(rules);
 		
-		base.matchEventToActions(result);
+		List<String> listResults = base.matchEventToActions(result);
+		for (String each: listResults) {
+			System.out.println(each);
+		}
 	}
 
 }

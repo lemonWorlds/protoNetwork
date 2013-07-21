@@ -1,5 +1,8 @@
 package stuff;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import com.hp.hpl.jena.query.Query;
 import com.hp.hpl.jena.query.QueryExecution;
 import com.hp.hpl.jena.query.QueryExecutionFactory;
@@ -14,7 +17,7 @@ public class RuleBase {
 	private static final String QUERY_PT_1 = "PREFIX ex: <http://www.model.org/> " +
 			                  				 "PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#> " +
 			                  				 "PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> " +
-			                  				 "SELECT ?action " +
+			                  				 "SELECT DISTINCT ?action " +
 			                  				 "WHERE {" +
 			                  				 "     ?instance rdf:type ?ev . " +
 			                  				 "     ?ev rdfs:subClassOf ex:event . " +
@@ -26,20 +29,18 @@ public class RuleBase {
 
 	public void addRule(Model model) {
 		this.model.add(model);
+		this.model.write(System.out);
 	}
 	
-	public String matchEventToActions(String eventType) {
+	public List<String> matchEventToActions(String eventType) {
 		Query query = QueryFactory.create(QUERY_PT_1 + eventType + QUERY_PT_2);
 		QueryExecution execution = QueryExecutionFactory.create(query,model);
 		ResultSet results = execution.execSelect();
-		if (!results.hasNext()) {
-			System.out.println("blah");
-		}
+		List<String> actions = new ArrayList<String>();
 		while (results.hasNext()) {
-			System.out.println(results.next());
+			actions.add(results.next().getResource("action").getURI());
 		}
-		model.write(System.out);
-		return null;
+		return actions;
 	}
 
 }
