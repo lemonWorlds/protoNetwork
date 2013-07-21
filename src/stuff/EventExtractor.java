@@ -5,12 +5,10 @@ import com.hp.hpl.jena.query.QueryExecution;
 import com.hp.hpl.jena.query.QueryExecutionFactory;
 import com.hp.hpl.jena.query.QueryFactory;
 import com.hp.hpl.jena.query.ResultSet;
-import com.hp.hpl.jena.rdf.model.InfModel;
 import com.hp.hpl.jena.rdf.model.Model;
 
 public class EventExtractor {
-	//private static final InfModel schema = SchemaSingleton.getSchema();
-	private static final String queryStr = "PREFIX ex: <http://www.model.org/> " +
+	private static final String QUERYSTR = "PREFIX ex: <http://www.model.org/> " +
 			                  "PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> " +
 			                  "SELECT ?type " +
 			                  "WHERE {" +
@@ -20,15 +18,19 @@ public class EventExtractor {
 	private static Query query = null;
 	
 	public EventExtractor() {
-		query = QueryFactory.create(queryStr);
+		query = QueryFactory.create(QUERYSTR);
 	}
 	
 	public String extract(Model model) {
 		QueryExecution execution = QueryExecutionFactory.create(query,model);
 		ResultSet results = execution.execSelect();
-		while (results.hasNext()) {
-			System.out.println(results.next());
+		String result = null;
+		if (results.hasNext()) {
+			result = results.next().getResource("type").getURI();
 		}
-		return null;
+		if (results.hasNext() || result == null) {
+			throw new IllegalArgumentException();
+		}
+		return result;
 	}
 }
