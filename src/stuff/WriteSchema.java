@@ -46,8 +46,8 @@ public class WriteSchema {
 			joinEvent.addProperty(RDFS.subClassOf, membershipEvent);
 			Resource leaveEvent = model.createResource("http://www.model.org/leave");
 			leaveEvent.addProperty(RDFS.subClassOf, membershipEvent);
-			FileOutputStream out = new FileOutputStream("C:\\Users\\Mum\\workspace\\protoNetwork\\src\\stuff\\test.rdf");
-			FileOutputStream out1 = new FileOutputStream("C:\\Users\\Mum\\workspace\\protoNetwork\\src\\stuff\\schema.rdf");
+			FileOutputStream out = new FileOutputStream("H:\\newWorkspace\\protoNetwork\\src\\stuff\\schema.rdf");
+			FileOutputStream out1 = new FileOutputStream("H:\\newWorkspace\\protoNetwork\\src\\stuff\\schemaNice.rdf");
 			
 			Resource action = model.createResource("http://www.model.org/action");
 			action.addProperty(RDF.type, RDFS.Class);
@@ -55,8 +55,8 @@ public class WriteSchema {
 			hasAction.addProperty(RDFS.domain, eventClass);
 			hasAction.addProperty(RDFS.range, action);
 			
-			model.write(out1);
-			model.write(out, "N-TRIPLE");
+			model.write(out);
+			model.write(out1, "N-TRIPLE");
 		} catch (Exception ex) {
 			ex.printStackTrace();
 		}

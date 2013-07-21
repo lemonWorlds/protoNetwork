@@ -16,5 +16,7 @@
 	<classpathentry kind="lib" path="H:/apache-jena/apache-jena-2.10.1/lib/jena-tdb-0.10.1.jar"/>
 	<classpathentry kind="lib" path="H:/apache-jena/apache-jena-2.10.1/lib/xercesImpl-2.11.0.jar"/>
 	<classpathentry kind="lib" path="H:/apache-jena/apache-jena-2.10.1/lib/xml-apis-1.4.01.jar"/>
+	<classpathentry kind="lib" path="//bloomsburyfs/home/tohaga01/Desktop/slf4j-1.7.5/slf4j-1.7.5/slf4j-api-1.7.5.jar"/>
+	<classpathentry kind="lib" path="//bloomsburyfs/home/tohaga01/Desktop/slf4j-1.7.5/slf4j-1.7.5/slf4j-simple-1.7.5.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>
