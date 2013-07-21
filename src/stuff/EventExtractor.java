@@ -16,6 +16,7 @@ public class EventExtractor {
 			                  "      ?ev rdf:type ?type" +
 			                  "}";
 	private static Query query = null;
+	private static final int SIZE_OF_NAMESPACE_PREFIX = 21;
 	
 	public EventExtractor() {
 		query = QueryFactory.create(QUERYSTR);
@@ -24,13 +25,14 @@ public class EventExtractor {
 	public String extract(Model model) {
 		QueryExecution execution = QueryExecutionFactory.create(query,model);
 		ResultSet results = execution.execSelect();
-		String result = null;
+		String resultURI = null;
 		if (results.hasNext()) {
-			result = results.next().getResource("type").getURI();
+			resultURI = results.next().getResource("type").getURI();
 		}
-		if (results.hasNext() || result == null) {
+		if (results.hasNext() || resultURI == null) {
 			throw new IllegalArgumentException();
 		}
+		String result = resultURI.substring(SIZE_OF_NAMESPACE_PREFIX);
 		return result;
 	}
 }
