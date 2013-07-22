@@ -46,6 +46,7 @@ public class WriteSchema {
 			joinEvent.addProperty(RDFS.subClassOf, membershipEvent);
 			Resource leaveEvent = model.createResource("http://www.model.org/leave");
 			leaveEvent.addProperty(RDFS.subClassOf, membershipEvent);
+			
 			FileOutputStream out = new FileOutputStream("H:\\newWorkspace\\protoNetwork\\src\\stuff\\schema.rdf");
 			FileOutputStream out1 = new FileOutputStream("H:\\newWorkspace\\protoNetwork\\src\\stuff\\schemaNice.rdf");
 			
