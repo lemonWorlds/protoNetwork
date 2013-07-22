@@ -1,0 +1,49 @@
+<rdf:RDF
+    xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+    xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#" > 
+  <rdf:Description rdf:about="http://www.model.org/memberEvent">
+    <rdfs:subClassOf rdf:resource="http://www.model.org/event"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.model.org/action">
+    <rdf:type rdf:resource="http://www.w3.org/2000/01/rdf-schema#Class"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.model.org/join">
+    <rdfs:subClassOf rdf:resource="http://www.model.org/memberEvent"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.model.org/update">
+    <rdfs:subClassOf rdf:resource="http://www.model.org/documentEvent"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.model.org/delete">
+    <rdfs:subClassOf rdf:resource="http://www.model.org/documentEvent"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.model.org/document">
+    <rdf:type rdf:resource="http://www.w3.org/2000/01/rdf-schema#Class"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.model.org/documentEvent">
+    <rdfs:subClassOf rdf:resource="http://www.model.org/event"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.model.org/occurredAt">
+    <rdfs:range rdf:resource="http://www.model.org/peer"/>
+    <rdfs:domain rdf:resource="http://www.model.org/event"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.model.org/create">
+    <rdfs:subClassOf rdf:resource="http://www.model.org/documentEvent"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.model.org/leave">
+    <rdfs:subClassOf rdf:resource="http://www.model.org/memberEvent"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.model.org/hasAction">
+    <rdfs:range rdf:resource="http://www.model.org/action"/>
+    <rdfs:domain rdf:resource="http://www.model.org/event"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.model.org/appliedTo">
+    <rdfs:range rdf:resource="http://www.model.org/document"/>
+    <rdfs:domain rdf:resource="http://www.model.org/event"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.model.org/peer">
+    <rdf:type rdf:resource="http://www.w3.org/2000/01/rdf-schema#Class"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.model.org/event">
+    <rdf:type rdf:resource="http://www.w3.org/2000/01/rdf-schema#Class"/>
+  </rdf:Description>
+</rdf:RDF>

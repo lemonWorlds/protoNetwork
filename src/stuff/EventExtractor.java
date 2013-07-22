@@ -32,7 +32,7 @@ public class EventExtractor {
 		if (results.hasNext() || resultURI == null) {
 			throw new IllegalArgumentException();
 		}
-		String result = resultURI.substring(SIZE_OF_NAMESPACE_PREFIX);
-		return result;
+		//String result = resultURI.substring(SIZE_OF_NAMESPACE_PREFIX);
+		return resultURI;
 	}
 }

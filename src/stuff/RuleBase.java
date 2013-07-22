@@ -12,7 +12,7 @@ import com.hp.hpl.jena.rdf.model.InfModel;
 import com.hp.hpl.jena.rdf.model.Model;
 
 public class RuleBase {
-	private InfModel model = SchemaSingleton.getSchema();
+	private Model model = SchemaSingleton.getSchema();
 	
 	private static final String QUERY_PT_1 = "PREFIX ex: <http://www.model.org/> " +
 			                  				 "PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#> " +

@@ -16,7 +16,7 @@ public class Driver {
 	}
 
 	private void launch() {
-		InfModel schema = SchemaSingleton.getSchema();
+		Model schema = SchemaSingleton.getSchema();
 		Model model = ModelFactory.createDefaultModel();
 		
 		//Create event of type with occurrence at property 
@@ -30,10 +30,10 @@ public class Driver {
 		//Extract event type from model
 		EventExtractor extractor = new EventExtractor();
 		String result = extractor.extract(model);
-		System.out.println(result);
+		//System.out.println(result);
 		
 		//New rule base
-		RuleBase base = new RuleBase();
+		RuleBaseTree base = new RuleBaseTree();
 		
 		//Create a model of some rules
 		Model rules = ModelFactory.createDefaultModel();
@@ -43,7 +43,7 @@ public class Driver {
 		Resource action1 = rules.createResource("http://www.rules.org/action1");
 		Property hasAction = schema.getProperty("http://www.model.org/hasAction");
 		ruleEvent1.addProperty(hasAction, action1);
-		
+		/*
 		//Create more rules
 		Resource ruleEvent2 = rules.createResource("http://www.rules.org/ruleEvent2");
 		Resource memberEventClass = schema.getResource("http://www.model.org/memberEvent");
@@ -68,14 +68,14 @@ public class Driver {
 		ruleEvent5.addProperty(RDF.type, joinEvent);
 		Resource action5 = rules.createResource("http://www.rules.org/action5");
 		ruleEvent5.addProperty(hasAction,action5);
-		
+		*/
 		//Add rules to base
 		base.addRule(rules);
-		
+		/*
 		List<String> listResults = base.matchEventToActions(result);
 		for (String each: listResults) {
 			System.out.println(each);
-		}
+		}*/
 	}
 
 }
