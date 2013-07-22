@@ -1,8 +1,8 @@
 package stuff;
 
-import java.util.List;
+//import java.util.List;
 
-import com.hp.hpl.jena.rdf.model.InfModel;
+//import com.hp.hpl.jena.rdf.model.InfModel;
 import com.hp.hpl.jena.rdf.model.Model;
 import com.hp.hpl.jena.rdf.model.ModelFactory;
 import com.hp.hpl.jena.rdf.model.Property;
@@ -28,8 +28,8 @@ public class Driver {
 		event.addProperty(occurredAt, peer);
 		
 		//Extract event type from model
-		EventExtractor extractor = new EventExtractor();
-		String result = extractor.extract(model);
+		//EventExtractor extractor = new EventExtractor();
+		//String result = extractor.extract(model);
 		//System.out.println(result);
 		
 		//New rule base

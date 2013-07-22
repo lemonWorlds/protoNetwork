@@ -16,7 +16,7 @@ public class EventExtractor {
 			                  "      ?ev rdf:type ?type" +
 			                  "}";
 	private static Query query = null;
-	private static final int SIZE_OF_NAMESPACE_PREFIX = 21;
+	//private static final int SIZE_OF_NAMESPACE_PREFIX = 21;
 	
 	public EventExtractor() {
 		query = QueryFactory.create(QUERYSTR);
