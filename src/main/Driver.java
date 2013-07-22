@@ -2,8 +2,6 @@ package main;
 
 import java.util.List;
 
-import org.apache.log4j.BasicConfigurator;
-
 import stuff.SchemaSingleton;
 
 import com.hp.hpl.jena.rdf.model.Model;

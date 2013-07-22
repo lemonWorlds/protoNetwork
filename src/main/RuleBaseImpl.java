@@ -30,7 +30,6 @@ public class RuleBaseImpl implements RuleBase {
 				Set<Model> modelSet = ruleSet.get(resultURI);
 				modelSet.add(next);
 			}
-			System.out.println(ruleSet);
 		}
 	}
 
