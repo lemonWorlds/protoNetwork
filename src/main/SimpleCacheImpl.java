@@ -21,8 +21,7 @@ public class SimpleCacheImpl implements SuperClassCache {
 	public List<String> getSuperClasses(String eventType) {
 		List<String> results = cache.get(eventType);
 		if (results == null) {
-			String query = QueryCreator.FIND_EVENT_SUPERCLASS_PT1 + eventType + QueryCreator.FIND_EVENT_SUPERCLASS_PT2;
-			ResultSet types = QueryProcessor.processSelectQuery(QueryCreator.getEventSuperclassQuery(query), schema);
+			ResultSet types = QueryProcessor.processSelectQuery(QueryCreator.getEventSuperclassQuery(eventType), schema);
 			results = new ArrayList<>();
 			while (types.hasNext()) {
 				results.add(types.next().getResource(QueryCreator.FIND_EVENT_SUPERCLASS_VAR).getURI());

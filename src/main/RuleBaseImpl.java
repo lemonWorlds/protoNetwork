@@ -30,6 +30,7 @@ public class RuleBaseImpl implements RuleBase {
 				Set<Model> modelSet = ruleSet.get(resultURI);
 				modelSet.add(next);
 			}
+			System.out.println(ruleSet);
 		}
 	}
 
@@ -42,17 +43,18 @@ public class RuleBaseImpl implements RuleBase {
 		ResultSet results = QueryProcessor.processSelectQuery(QueryCreator.getEventType(), model);
 		String resultURI = ensureSingleResult(results, QueryCreator.FIND_EVENT_TYPE_VAR);
 		String eventType = resultURI.substring(SIZE_OF_NAMESPACE_PREFIX);
-		
 		//Get event superclasses
 		List<String> superClasses = cache.getSuperClasses(eventType);
 		
 		//Find rules that match superclasses in base
 		for (String next: superClasses) {
 			Set<Model> modelSet = ruleSet.get(next);
-			for (Model each: modelSet) {
-				ResultSet action = QueryProcessor.processSelectQuery(QueryCreator.getActionQuery(), each);
-				String actionURI = ensureSingleResult(action, QueryCreator.FIND_RULE_ACTION_VAR);
-				actionsList.add(actionURI);
+			if (modelSet != null) {
+				for (Model each: modelSet) {
+					ResultSet action = QueryProcessor.processSelectQuery(QueryCreator.getActionQuery(), each);
+					String actionURI = ensureSingleResult(action, QueryCreator.FIND_RULE_ACTION_VAR);
+					actionsList.add(actionURI);
+				}
 			}
 		}
 		return actionsList;

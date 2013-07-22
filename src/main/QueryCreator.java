@@ -26,15 +26,15 @@ public class QueryCreator {
 	public static final String FIND_RULE_EVENT_CLASS_VAR = "type";
 	
 	
-	public static final String FIND_EVENT_SUPERCLASS_PT1 = "PREFIX ex: <http://www.model.org/> " +
-												           "PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#> " +
+	public static final String FIND_EVENT_SUPERCLASS_PT1 =  "PREFIX ex: <http://www.model.org/> " +
+												            "PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#> " +
 															"PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> " +
 															"SELECT DISTINCT ?class " +
 															"WHERE {" +
 															"      ?class rdfs:subClassOf ex:event . " +
 															"      ex:";
 
-	public static final String FIND_EVENT_SUPERCLASS_PT2 = " rdfs:subClassOf ?class . " +
+	public static final String FIND_EVENT_SUPERCLASS_PT2 = " rdfs:subClassOf ?class" +
 				                                            "}";
 	
 	
