@@ -19,7 +19,7 @@ public class SchemaSingleton {
 	public static Model getSchema() {
 		if (infModel == null) {
 			Model model = ModelFactory.createDefaultModel();
-			InputStream in = FileManager.get().open("C:\\Users\\Mum\\git\\protoNetwork\\src\\stuff\\schema.rdf");
+			InputStream in = FileManager.get().open("H:\\newWorkspace\\protoNetwork\\src\\stuff\\schema.rdf");
 			model.read(in, null);
 			Reasoner r = ReasonerRegistry.getRDFSReasoner();
 			r.setParameter(ReasonerVocabulary.PROPsetRDFSLevel, ReasonerVocabulary.RDFS_SIMPLE);
