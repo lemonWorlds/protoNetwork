@@ -15,10 +15,10 @@ public class SimpleInputHandler implements InputHandler {
 	public void handleConnection(Socket socket) {
 		try {
 			OutputStream out = socket.getOutputStream();
-			//InputStream in = socket.getInputStream();
-			//InputStreamHandler inHandler = new SimpleInputStreamHandler(in);
+			InputStream in = socket.getInputStream();
+			InputStreamHandler inHandler = new SimpleInputStreamHandler(in);
 			OutputStreamHandler outHandler = new SimpleOutputStreamHandler(out);
-			//new Thread(inHandler).start();
+			new Thread(inHandler).start();
 			new Thread(outHandler).start();
 		} catch (IOException ex) {
 			ex.printStackTrace();

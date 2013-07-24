@@ -4,6 +4,8 @@ import java.io.ByteArrayOutputStream;
 import java.io.DataOutputStream;
 import java.io.IOException;
 import java.io.OutputStream;
+import java.util.ArrayList;
+import java.util.List;
 
 import stuff.SchemaSingleton;
 
@@ -17,6 +19,7 @@ import interfaces.OutputStreamHandler;
 
 public class SimpleOutputStreamHandler implements OutputStreamHandler, Runnable {
 	
+	private List<Model> modelList = new ArrayList<>();
 	private DataOutputStream dout = null;
 	private Model schema = SchemaSingleton.getSchema();
 	private Model updateEv;
@@ -44,27 +47,17 @@ public class SimpleOutputStreamHandler implements OutputStreamHandler, Runnable 
 			byte[] bytes6 = getBytesFromModel(memEv);
 			byte[] bytes7 = getBytesFromModel(joinEv);
 			byte[] bytes8 = getBytesFromModel(leaveEv);
-			System.out.println("Output " + (i + 1) + ":");
 			writeBytesToStream(bytes1);
 			writeBytesToStream(bytes2);
 			writeBytesToStream(bytes3);
-			try {
-				Thread.sleep(10000);
-			} catch (InterruptedException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			}
 			writeBytesToStream(bytes4);
 			writeBytesToStream(bytes5);
 			writeBytesToStream(bytes6);
 			writeBytesToStream(bytes7);
 			writeBytesToStream(bytes8);
 		}
-		try {
-			dout.close();
-		} catch (IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
+		while (true) {
+			
 		}
 	}
 	

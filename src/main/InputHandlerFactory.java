@@ -16,10 +16,14 @@ public class InputHandlerFactory {
 			try {
 				properties.load(new FileInputStream("H:\\newWorkspace\\protoNetwork\\src\\stuff\\InputHandlerFactory.properties"));
 				handlerClass = properties.getProperty("handler");
-				handler = (InputHandler) Class.forName(handlerClass).newInstance();
-			} catch (IOException | InstantiationException | IllegalAccessException | ClassNotFoundException ex) {
+			} catch (IOException ex) {
 				ex.printStackTrace();
 			}
+		}			
+		try {
+			handler = (InputHandler) Class.forName(handlerClass).newInstance();
+		} catch (InstantiationException | IllegalAccessException | ClassNotFoundException ex) {
+			ex.printStackTrace();
 		}
 		return handler;
 	}
