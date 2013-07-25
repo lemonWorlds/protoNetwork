@@ -6,6 +6,7 @@ import java.io.IOException;
 import java.io.OutputStream;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.concurrent.BlockingQueue;
 
 import stuff.SchemaSingleton;
 
@@ -19,7 +20,6 @@ import interfaces.OutputStreamHandler;
 
 public class SimpleOutputStreamHandler implements OutputStreamHandler, Runnable {
 	
-	private List<Model> modelList = new ArrayList<>();
 	private DataOutputStream dout = null;
 	private Model schema = SchemaSingleton.getSchema();
 	private Model updateEv;

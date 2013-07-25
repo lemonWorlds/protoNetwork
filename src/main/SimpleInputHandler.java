@@ -4,6 +4,8 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
 import java.net.Socket;
+import java.util.concurrent.BlockingQueue;
+import java.util.concurrent.LinkedBlockingQueue;
 
 import interfaces.InputHandler;
 import interfaces.InputStreamHandler;
@@ -16,8 +18,9 @@ public class SimpleInputHandler implements InputHandler {
 		try {
 			OutputStream out = socket.getOutputStream();
 			InputStream in = socket.getInputStream();
-			InputStreamHandler inHandler = new SimpleInputStreamHandler(in);
-			OutputStreamHandler outHandler = new SimpleOutputStreamHandler(out);
+			BlockingQueue<String> sharedQueue = new LinkedBlockingQueue<>();
+			InputStreamHandler inHandler = new SimpleInputStreamHandler(in,sharedQueue);
+			OutputStreamHandler outHandler = new ServerSideOutputHandler(out,sharedQueue);
 			new Thread(inHandler).start();
 			new Thread(outHandler).start();
 		} catch (IOException ex) {
