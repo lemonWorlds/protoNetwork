@@ -38,6 +38,11 @@ public class SimpleOutputStreamHandler implements OutputStreamHandler, Runnable 
 
 	@Override
 	public void run() {
+		/*
+		 * FOR TESTING!!!!!!!!!!!!!
+		 */
+		String name = "Clive";
+		writeBytesToStream(name.getBytes());
 		for (int i = 0; i < 5; i++) {
 			byte[] bytes1 = getBytesFromModel(updateEv);
 			byte[] bytes2 = getBytesFromModel(createEv);

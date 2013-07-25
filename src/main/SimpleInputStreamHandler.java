@@ -4,7 +4,11 @@ import java.io.DataInputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.StringReader;
+import java.util.List;
+import java.util.Map;
 import java.util.concurrent.BlockingQueue;
+
+import stuff.ReliableMessageStore;
 
 import com.hp.hpl.jena.rdf.model.Model;
 import com.hp.hpl.jena.rdf.model.ModelFactory;
@@ -13,6 +17,7 @@ import com.hp.hpl.jena.rdf.model.StmtIterator;
 import interfaces.InputStreamHandler;
 
 public class SimpleInputStreamHandler implements InputStreamHandler, Runnable {
+
 	private DataInputStream stream = null;
 	private BlockingQueue<String> queue = null;
 	
