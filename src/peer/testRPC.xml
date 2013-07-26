@@ -1,0 +1,6 @@
+<?xml version="1.0"?>
+<methodCall>
+<methodName>peer.ExampleRPCObject.aMethod</methodName>
+<param>test</param>
+<param>test1</param>
+</methodCall>
