@@ -15,13 +15,13 @@ public class ClientSideInputHandler implements InputStreamHandler, Runnable {
 	
 	@Override
 	public void run() {
-		while (true) {
 			try {
-				System.out.println(getInputData(stream));
+				while (true) {
+					System.out.println(getInputData(stream));
+				} 
 			} catch (IOException ex) {
 				ex.printStackTrace();
 			}
-		}
 	}
 	
 	private String getInputData(DataInputStream stream) throws IOException {		

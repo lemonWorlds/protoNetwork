@@ -23,9 +23,6 @@ public class SimpleSendServer {
 			OutputStreamHandler outHandler = new SimpleOutputStreamHandler(out);
 			new Thread(inHandler).start();
 			new Thread(outHandler).start();
-			while (true) {
-				
-			}
 		} catch (Exception ex) {
 			ex.printStackTrace();
 		}
