@@ -56,6 +56,15 @@ public class WriteSchema {
 			hasAction.addProperty(RDFS.domain, eventClass);
 			hasAction.addProperty(RDFS.range, action);
 			
+			/*
+			 * ADDING NEW FEATURES BELOW
+			 */
+			
+			Property heldBy = model.createProperty("http://www.model.org/heldBy");
+			heldBy.addProperty(RDFS.domain, document);
+			heldBy.addProperty(RDFS.range, RDF.Bag);
+			
+			
 			model.write(out);
 			model.write(out1, "N-TRIPLE");
 		} catch (Exception ex) {
